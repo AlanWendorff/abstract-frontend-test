@@ -15,20 +15,22 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "axios": "^1.6.1",
+    "framer-motion": "^11.0.6",
     "next": "14.0.2",
     "node-json-db": "^2.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-icons": "^4.11.0"
+    "react-icons": "^4.11.0",
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "^20.11.20",
     "@types/react": "^18.2.58",
     "@types/react-dom": "^18.2.19",
-    "typescript": "^5.3.3",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.2",
     "prettier": "^3.2.5",
     "prettier-eslint": "^16.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.2"
+    "typescript": "^5.3.3"
   }
 }
