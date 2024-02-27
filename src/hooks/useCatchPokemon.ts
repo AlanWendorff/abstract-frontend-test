@@ -10,10 +10,10 @@ interface IUseCatchPokemonReturn {
 }
 
 interface IUseCatchPokemonProps {
-  pokemon: TPokemonDetailModel;
+  selectedPokemon: TPokemonDetailModel | null;
 }
 
-const useCatchPokemon = ({ pokemon }: IUseCatchPokemonProps): IUseCatchPokemonReturn => {
+const useCatchPokemon = ({ selectedPokemon }: IUseCatchPokemonProps): IUseCatchPokemonReturn => {
   const [isPokemonCatched, setIsPokemonCatched] = useState(false);
 
   const handlePokemon = (pokemonId: number, pokemonName: string) => {
@@ -24,13 +24,13 @@ const useCatchPokemon = ({ pokemon }: IUseCatchPokemonProps): IUseCatchPokemonRe
     await fetch(API_POKEMON_CATCH, {
       method: EApiMethods.POST,
       body: JSON.stringify({ id: pokemonId, name: pokemonName })
-    }).then(() => handleIsPokemonCatched(pokemon.id));
+    }).then(() => selectedPokemon && handleIsPokemonCatched(selectedPokemon.id));
   };
 
   const handleFreePokemon = async (pokemonId: number) => {
     await fetch(`${API_POKEMON}/${pokemonId}`, {
       method: EApiMethods.DELETE
-    }).then(() => handleIsPokemonCatched(pokemon.id));
+    }).then(() => selectedPokemon && handleIsPokemonCatched(selectedPokemon.id));
   };
 
   const handleIsPokemonCatched = async (pokemonId: number) => {
@@ -43,8 +43,8 @@ const useCatchPokemon = ({ pokemon }: IUseCatchPokemonProps): IUseCatchPokemonRe
   };
 
   useEffect(() => {
-    handleIsPokemonCatched(pokemon.id);
-  }, [pokemon]);
+    selectedPokemon && handleIsPokemonCatched(selectedPokemon.id);
+  }, [selectedPokemon]);
 
   return { isPokemonCatched, handlePokemon };
 };

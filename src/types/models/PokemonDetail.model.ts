@@ -1,17 +1,12 @@
 type TPokemonDetailModel = {
   id: number;
   name: string;
-  types: TTypeModel[];
-};
-
-export type TTypeModel = {
-  slot: number;
-  type: TTypeModel2;
-};
-
-type TTypeModel2 = {
-  name: string;
-  url: string;
+  types: string[];
+  hp: number | undefined;
+  attack: number | undefined;
+  height: number;
+  movements: number;
+  weight: number;
 };
 
 export default TPokemonDetailModel;
