@@ -1,12 +1,13 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, lazy } from 'react';
 import { Container, Stack, Flex, Button } from '@chakra-ui/react';
-import PokemonModal from './components/PokemonModal';
-import PokemonList from './components/PokemonList';
+import PokemonList from '../../shared/PokemonList';
 import TPokemonDetailModel from 'types/models/PokemonDetail.model';
-import PokemonData from './components/PokemonModal/components/PokemonData';
 import useRoot from './useRoot';
+import useSelectPokemon from 'hooks/useSelectPokemon';
+const PokemonModal = lazy(() => import('../../shared/PokemonModal'));
+const PokemonData = lazy(() => import('../../shared/PokemonData'));
 
 interface IRootProps {
   initialPokemons: TPokemonDetailModel[];
@@ -14,7 +15,8 @@ interface IRootProps {
 }
 
 const Root: FC<IRootProps> = ({ initialPokemons, initialPage }) => {
-  const { isLoading, pokemonList, selectedPokemon, pokemonDataModal, handleNextPage, handleViewPokemon } = useRoot({
+  const { selectedPokemon, DATA_MODAL, handleViewPokemon } = useSelectPokemon();
+  const { isLoading, pokemonList, handleNextPage } = useRoot({
     initialPokemons,
     initialPage
   });
@@ -33,7 +35,7 @@ const Root: FC<IRootProps> = ({ initialPokemons, initialPage }) => {
         </Container>
       </Flex>
 
-      <PokemonModal {...pokemonDataModal} selectedPokemon={selectedPokemon}>
+      <PokemonModal {...DATA_MODAL} selectedPokemon={selectedPokemon}>
         {selectedPokemon && <PokemonData pokemon={selectedPokemon} />}
       </PokemonModal>
     </>

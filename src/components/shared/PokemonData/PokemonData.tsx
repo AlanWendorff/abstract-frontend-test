@@ -1,6 +1,6 @@
+import { FC } from 'react';
 import { Box, AspectRatio, Image, Stack, Progress, Text, Badge, HStack, Checkbox } from '@chakra-ui/react';
 import useCatchPokemon from 'hooks/useCatchPokemon';
-import { FC } from 'react';
 import TPokemonDetailModel from 'types/models/PokemonDetail.model';
 
 interface IPokemonCardProps {
@@ -22,6 +22,7 @@ const PokemonData: FC<IPokemonCardProps> = ({ pokemon }) => {
           <Image
             objectFit='contain'
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`}
+            alt='pokemon thumbnail'
           />
         </AspectRatio>
         <Stack direction='row' spacing='5'>

@@ -1,18 +1,19 @@
 import DB from '@constants/api/config';
-import { IPokemonDTO } from 'interfaces/dto/api/CatchedPokemon.dto';
+import ICatchedPokemonDTO, { IPokemonDTO } from 'interfaces/dto/api/CatchedPokemon.dto';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET() {
+export async function GET(request: NextRequest, response: NextResponse) {
   try {
-    return NextResponse.json({ catched_pokemon: DB.getData('/catched_pokemon') });
+    const ALL_POKEMON: ICatchedPokemonDTO = await DB.getData('/catched_pokemon');
+    return NextResponse.json({ catched_pokemon: ALL_POKEMON }, { status: 200 });
   } catch (error) {
     throw new Error(`Error getting: ${error}`);
   }
 }
 
-export async function POST(req: NextRequest) {
+export async function POST(request: NextRequest) {
   try {
-    const NEW_POKEMON: IPokemonDTO = await req.json();
+    const NEW_POKEMON: IPokemonDTO = await request.json();
 
     const CATCHED_POKEMON_ID = await DB.getIndex('/catched_pokemon', Number(NEW_POKEMON.id));
 

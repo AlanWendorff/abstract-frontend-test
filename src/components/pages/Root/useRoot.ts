@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { useDisclosure } from '@chakra-ui/react';
 import TPokemonDetailModel from 'types/models/PokemonDetail.model';
 import getPokemons from 'actions/pokemon.action';
-import TUseDisclosure from 'types/shared/useDisclosure.type';
 
 interface IUseRootProps {
   initialPokemons: TPokemonDetailModel[];
@@ -12,23 +10,13 @@ interface IUseRootProps {
 interface IUseRoot {
   isLoading: boolean;
   pokemonList: TPokemonDetailModel[];
-  selectedPokemon: TPokemonDetailModel | null;
-  pokemonDataModal: TUseDisclosure;
   handleNextPage: () => void;
-  handleViewPokemon: (pokemon: TPokemonDetailModel) => void;
 }
 
 const useRoot = ({ initialPokemons, initialPage }: IUseRootProps): IUseRoot => {
   const [isLoading, setIsLoading] = useState(false);
   const [pokemonList, setPokemonList] = useState<TPokemonDetailModel[]>(initialPokemons);
   const [nextPage, setNextPage] = useState(initialPage);
-  const [selectedPokemon, setSelectedPokemon] = useState<TPokemonDetailModel | null>(null);
-  const pokemonDataModal = useDisclosure();
-
-  const handleViewPokemon = (pokemon: TPokemonDetailModel) => {
-    setSelectedPokemon(pokemon);
-    pokemonDataModal.onOpen();
-  };
 
   const handleNextPage = () => {
     setIsLoading(true);
@@ -40,7 +28,7 @@ const useRoot = ({ initialPokemons, initialPage }: IUseRootProps): IUseRoot => {
       .finally(() => setIsLoading(false));
   };
 
-  return { isLoading, pokemonList, selectedPokemon, pokemonDataModal, handleNextPage, handleViewPokemon };
+  return { isLoading, pokemonList, handleNextPage };
 };
 
 export default useRoot;
