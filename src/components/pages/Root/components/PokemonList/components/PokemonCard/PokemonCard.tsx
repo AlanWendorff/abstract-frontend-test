@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Stack, Text, Image, HStack, Badge, AspectRatio } from '@chakra-ui/react';
-import TPokemonDetailModel, { TTypeModel } from 'types/pokemon/models/PokemonDetail.model';
+import TPokemonDetailModel, { TTypeModel } from 'types/models/PokemonDetail.model';
 
 interface IPokemonCardProps {
   pokemon: TPokemonDetailModel;

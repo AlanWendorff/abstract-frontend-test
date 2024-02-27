@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { Container, Stack, Flex, Button } from '@chakra-ui/react';
 import PokemonModal from './components/PokemonModal';
 import PokemonList from './components/PokemonList';
-import TPokemonDetailModel from 'types/pokemon/models/PokemonDetail.model';
+import TPokemonDetailModel from 'types/models/PokemonDetail.model';
 import PokemonData from './components/PokemonModal/components/PokemonData';
 import useRoot from './useRoot';
 

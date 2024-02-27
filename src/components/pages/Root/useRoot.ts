@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDisclosure } from '@chakra-ui/react';
-import TPokemonDetailModel from 'types/pokemon/models/PokemonDetail.model';
-import getPokemons from 'actions/pokemons/pokemons.action';
+import TPokemonDetailModel from 'types/models/PokemonDetail.model';
+import getPokemons from 'actions/pokemon.action';
 import TUseDisclosure from 'types/shared/useDisclosure.type';
 
 interface IUseRootProps {

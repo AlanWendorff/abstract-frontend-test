@@ -1,18 +1,22 @@
 import { Box, AspectRatio, Image, Stack, Progress, Text, Badge, HStack, Checkbox } from '@chakra-ui/react';
-import { FC, useState } from 'react';
+import useCatchPokemon from 'hooks/useCatchPokemon';
+import { FC } from 'react';
+import TPokemonDetailModel from 'types/models/PokemonDetail.model';
 
 interface IPokemonCardProps {
-  pokemon: any;
+  pokemon: TPokemonDetailModel;
 }
 
 const PokemonData: FC<IPokemonCardProps> = ({ pokemon }) => {
-  const [catched, setCatched] = useState(false);
+  const { isPokemonCatched, handlePokemon } = useCatchPokemon({ pokemon });
 
   return (
     <Stack spacing='5' pb='5'>
       <Stack spacing='5' position='relative'>
         <Box position='absolute' right='0' zIndex='99'>
-          <Checkbox>Catched</Checkbox>
+          <Checkbox isChecked={isPokemonCatched} onChange={() => handlePokemon(pokemon.id, pokemon.name)}>
+            Catched
+          </Checkbox>
         </Box>
         <AspectRatio w='full' ratio={1}>
           <Image

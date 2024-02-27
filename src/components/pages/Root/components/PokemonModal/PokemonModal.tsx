@@ -2,7 +2,7 @@
 
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from '@chakra-ui/react';
 import { ComponentProps, FC } from 'react';
-import TPokemonDetailModel from 'types/pokemon/models/PokemonDetail.model';
+import TPokemonDetailModel from 'types/models/PokemonDetail.model';
 
 interface IPokemonModalProps extends ComponentProps<typeof Modal> {
   selectedPokemon: TPokemonDetailModel | null;

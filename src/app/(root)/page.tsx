@@ -1,5 +1,5 @@
 import { NextPage } from 'next';
-import getPokemons from '../../actions/pokemons/pokemons.action';
+import getPokemons from '../../actions/pokemon.action';
 import Root from '@components/pages/Root';
 import { POKEAPI_URL } from '@constants/env';
 

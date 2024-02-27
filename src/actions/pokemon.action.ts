@@ -1,8 +1,8 @@
 'use server';
 
-import { IPokemonDetailDTO } from 'interfaces/pokemon/dto/PokemonDetail.dto';
-import { IPokemonListDTO } from 'interfaces/pokemon/dto/PokemonList.dto';
-import pokemonDetailMapper from 'utils/pokemon/mappers/pokemonDetail.mapper';
+import { IPokemonDetailDTO } from 'interfaces/dto/pokeapi/PokemonDetail.dto';
+import { IPokemonListDTO } from 'interfaces/dto/pokeapi/PokemonList.dto';
+import pokemonDetailMapper from 'utils/mappers/pokemonDetail.mapper';
 
 const getPokemons = async (url: string) => {
   const RESPONSE = await fetch(url);

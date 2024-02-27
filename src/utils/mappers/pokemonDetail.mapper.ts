@@ -1,5 +1,5 @@
-import { IPokemonDetailDTO } from 'interfaces/pokemon/dto/PokemonDetail.dto';
-import TPokemonDetailModel from 'types/pokemon/models/PokemonDetail.model';
+import { IPokemonDetailDTO } from 'interfaces/dto/pokeapi/PokemonDetail.dto';
+import TPokemonDetailModel from 'types/models/PokemonDetail.model';
 
 const pokemonDetailMapper = (dto: IPokemonDetailDTO): TPokemonDetailModel => ({
   id: dto.id,
