@@ -1,11 +1,11 @@
 import { SimpleGrid, Box } from '@chakra-ui/react';
 import PokemonCard from './components/PokemonCard';
-import { IPokemonDetailDTO } from 'interfaces/pokemon/dto/PokemonDetail.dto';
+import TPokemonDetailModel from 'types/pokemon/models/PokemonDetail.model';
 import { FC } from 'react';
 
 interface IPokemonListProps {
-  pokemons: IPokemonDetailDTO[];
-  handleViewPokemon: (pokemon: IPokemonDetailDTO) => void;
+  pokemons: TPokemonDetailModel[];
+  handleViewPokemon: (pokemon: TPokemonDetailModel) => void;
 }
 
 const PokemonList: FC<IPokemonListProps> = ({ pokemons, handleViewPokemon }) => (

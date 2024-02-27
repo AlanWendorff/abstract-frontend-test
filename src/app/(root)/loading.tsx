@@ -2,7 +2,7 @@ import { Flex, Container, Stack, Box, SimpleGrid, Skeleton, AspectRatio } from '
 
 const Loading = () => (
   <Flex alignItems='center' minH='100vh' justifyContent='center'>
-    <Container maxW='container.lg'>
+    {/* <Container maxW='container.lg'>
       <Stack p='5' alignItems='center' spacing='5'>
         <SimpleGrid spacing='5' columns={{ base: 1, md: 5 }}>
           {[...Array(20)].map((id) => (
@@ -18,7 +18,7 @@ const Loading = () => (
           ))}
         </SimpleGrid>
       </Stack>
-    </Container>
+    </Container> */}
   </Flex>
 );
 

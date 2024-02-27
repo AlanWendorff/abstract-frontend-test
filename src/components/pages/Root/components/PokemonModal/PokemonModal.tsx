@@ -2,10 +2,10 @@
 
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from '@chakra-ui/react';
 import { ComponentProps, FC } from 'react';
-import { IPokemonDetailDTO } from 'interfaces/pokemon/dto/PokemonDetail.dto';
+import TPokemonDetailModel from 'types/pokemon/models/PokemonDetail.model';
 
 interface IPokemonModalProps extends ComponentProps<typeof Modal> {
-  selectedPokemon: IPokemonDetailDTO | null;
+  selectedPokemon: TPokemonDetailModel | null;
 }
 
 const PokemonModal: FC<IPokemonModalProps> = ({ selectedPokemon, children, ...rest }) => (

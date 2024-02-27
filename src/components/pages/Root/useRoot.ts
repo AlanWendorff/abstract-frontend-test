@@ -1,31 +1,31 @@
 import { useState } from 'react';
 import { useDisclosure } from '@chakra-ui/react';
-import { IPokemonDetailDTO } from 'interfaces/pokemon/dto/PokemonDetail.dto';
+import TPokemonDetailModel from 'types/pokemon/models/PokemonDetail.model';
 import getPokemons from 'actions/pokemons/pokemons.action';
-import TUseDisclosure from 'types/useDisclosure.type';
+import TUseDisclosure from 'types/shared/useDisclosure.type';
 
 interface IUseRootProps {
-  initialPokemons: IPokemonDetailDTO[];
+  initialPokemons: TPokemonDetailModel[];
   initialPage: string;
 }
 
 interface IUseRoot {
   isLoading: boolean;
-  pokemonList: IPokemonDetailDTO[];
-  selectedPokemon: IPokemonDetailDTO | null;
+  pokemonList: TPokemonDetailModel[];
+  selectedPokemon: TPokemonDetailModel | null;
   pokemonDataModal: TUseDisclosure;
   handleNextPage: () => void;
-  handleViewPokemon: (pokemon: IPokemonDetailDTO) => void;
+  handleViewPokemon: (pokemon: TPokemonDetailModel) => void;
 }
 
 const useRoot = ({ initialPokemons, initialPage }: IUseRootProps): IUseRoot => {
   const [isLoading, setIsLoading] = useState(false);
-  const [pokemonList, setPokemonList] = useState<IPokemonDetailDTO[]>(initialPokemons);
+  const [pokemonList, setPokemonList] = useState<TPokemonDetailModel[]>(initialPokemons);
   const [nextPage, setNextPage] = useState(initialPage);
-  const [selectedPokemon, setSelectedPokemon] = useState<IPokemonDetailDTO | null>(null);
+  const [selectedPokemon, setSelectedPokemon] = useState<TPokemonDetailModel | null>(null);
   const pokemonDataModal = useDisclosure();
 
-  const handleViewPokemon = (pokemon: IPokemonDetailDTO) => {
+  const handleViewPokemon = (pokemon: TPokemonDetailModel) => {
     setSelectedPokemon(pokemon);
     pokemonDataModal.onOpen();
   };

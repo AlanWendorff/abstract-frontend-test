@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Stack, Text, Image, HStack, Badge, AspectRatio } from '@chakra-ui/react';
-import { IPokemonDetailDTO, IType } from 'interfaces/pokemon/dto/PokemonDetail.dto';
+import TPokemonDetailModel, { TTypeModel } from 'types/pokemon/models/PokemonDetail.model';
 
 interface IPokemonCardProps {
-  pokemon: IPokemonDetailDTO;
+  pokemon: TPokemonDetailModel;
 }
 
 const PokemonCard: FC<IPokemonCardProps> = ({ pokemon }) => (
@@ -15,7 +15,7 @@ const PokemonCard: FC<IPokemonCardProps> = ({ pokemon }) => (
       {pokemon.name}
     </Text>
     <HStack>
-      {pokemon.types.map((type: IType) => (
+      {pokemon.types.map((type: TTypeModel) => (
         <Badge size='xs' key={type.slot}>
           {type.type.name}
         </Badge>
