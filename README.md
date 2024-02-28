@@ -18,9 +18,9 @@ bun dev
 
 <b>ENV variables:</b>
 
-`NEXT_PUBLIC_POKEAPI_URL={poke-api-url}`
-`NEXT_PUBLIC_POKEAPI_SPRITES_URL={poke-api-sprites-url}`
-`NEXT_PUBLIC_APP_URL={app-url}`
+`NEXT_PUBLIC_POKEAPI_URL={poke-api-url}`<br/>
+`NEXT_PUBLIC_POKEAPI_SPRITES_URL={poke-api-sprites-url}`<br/>
+`NEXT_PUBLIC_APP_URL={app-url}`<br/>
 
 ## Objetivos
 
