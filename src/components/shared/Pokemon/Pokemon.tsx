@@ -43,7 +43,7 @@ const Attributes: FC<IAttributesProps> = ({ weight, height, movements, types }) 
       <Text fontSize='sm'>Tipos</Text>
       <HStack>
         {types.map((type) => (
-          <Badge key='type'>{type}</Badge>
+          <Badge key={type}>{type}</Badge>
         ))}
       </HStack>
     </Stack>
