@@ -44,7 +44,8 @@ bun dev
 
 #### Request
 
-`GET /api/catched`
+(old) `GET /api/catched`<br/>
+(new) `GET /api/pokemon/catch`
 
 #### Response
 
@@ -65,7 +66,8 @@ bun dev
 
 #### Request
 
-`POST /api/catched`
+(old) `POST /api/catched`<br/>
+(new) `POST /api/pokemon/catch`
 
 #### Body
 
@@ -89,8 +91,24 @@ bun dev
 
 #### Request
 
-`DELETE /api/catched/{pokemonId}`
+(old) `DELETE /api/catched/{pokemonId}`<br/>
+(new) `DELETE /api/pokemon/{id}`
 
 #### Reponse
 
 `HTTP STATUS 200`
+
+### (new) Saber si tengo un pokemon atrapado.
+
+#### Request
+
+`GET /api/pokemon/{id}`
+
+#### Reponse
+
+```json
+{
+  "is_pokemon_catched": "true",
+}
+```
+
