@@ -16,6 +16,12 @@ pnpm dev
 bun dev
 ```
 
+<b>ENV variables:</b>
+
+`NEXT_PUBLIC_POKEAPI_URL={poke-api-url}`
+`NEXT_PUBLIC_POKEAPI_SPRITES_URL={poke-api-sprites-url}`
+`NEXT_PUBLIC_APP_URL={app-url}`
+
 ## Objetivos
 
 - Limpiar el proyecto template y detectar errores o mejoras.
