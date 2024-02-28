@@ -1,5 +1,6 @@
 import { API_POKEMON_CATCH, API_POKEMON } from '@constants/api/routes';
 import EApiMethods from '@constants/enum';
+import { APP_URL } from '@constants/env';
 import IIsCatchedPokemonDTO from 'interfaces/dto/api/IsCatchedPokemon.dto';
 import { useEffect, useState } from 'react';
 import TPokemonDetailModel from 'types/models/PokemonDetail.model';
@@ -21,20 +22,20 @@ const useCatchPokemon = ({ selectedPokemon }: IUseCatchPokemonProps): IUseCatchP
   };
 
   const handleCatchPokemon = async (pokemonId: number, pokemonName: string) => {
-    await fetch(API_POKEMON_CATCH, {
+    await fetch(`${APP_URL}${API_POKEMON_CATCH}`, {
       method: EApiMethods.POST,
       body: JSON.stringify({ id: pokemonId, name: pokemonName })
     }).then(() => selectedPokemon && handleIsPokemonCatched(selectedPokemon.id));
   };
 
   const handleFreePokemon = async (pokemonId: number) => {
-    await fetch(`${API_POKEMON}/${pokemonId}`, {
+    await fetch(`${APP_URL}${API_POKEMON}/${pokemonId}`, {
       method: EApiMethods.DELETE
     }).then(() => selectedPokemon && handleIsPokemonCatched(selectedPokemon.id));
   };
 
   const handleIsPokemonCatched = async (pokemonId: number) => {
-    await fetch(`${API_POKEMON}/${pokemonId}`, {
+    await fetch(`${APP_URL}${API_POKEMON}/${pokemonId}`, {
       method: EApiMethods.GET
     }).then(async (res) => {
       const { is_pokemon_catched }: IIsCatchedPokemonDTO = await res.json();
